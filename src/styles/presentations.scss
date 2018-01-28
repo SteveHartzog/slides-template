@@ -1,0 +1,136 @@
+@import './mixins';
+@import './reveal';
+
+$fa-font-path: "~font-awesome/fonts";
+@import '~font-awesome/scss/font-awesome';
+// Fix for font-awesome
+.fa { font-family: FontAwesome !important; }
+
+html {
+  // Prevent page from showing before reveal is loaded
+  opacity: 0;
+
+  // Prevent flash of white... most of the time
+  color: black;
+  animation: fadein 6s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.toast {
+  position: absolute;
+  left: calc(50vw - 110px);
+  bottom: 45px !important;
+  height: 58px;
+  width: auto;
+  min-width: 220px;
+  bottom: 0;
+  padding: 4px;
+  z-index: 2;
+  background: #fff;
+  box-shadow: 0px 1px 5px rgba(0,0,0,0.4);
+  border-radius: 50px;
+  text-align: left;
+  cursor: default;
+  opacity: 1;
+  white-space: nowrap;
+  -webkit-transition: 
+    opacity 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    visibility 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition:
+    opacity 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    visibility 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+  // background: linear-gradient(to bottom, rgba(255, 253, 255, 0.3) 0%, rgba(39, 40, 34, 0) 50%, rgba(39, 40, 34, 0.2) 98%, rgba(0, 0, 0, 1.0) 100%);
+  background: linear-gradient(to bottom, royalblue 0%, skyblue 33%, royalblue 85%, royalblue 100%);
+  transform: translateY(8em);
+  transition-delay: 4s;
+  transition-duration: 5s;
+
+  .image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    display: inline-block;
+    background-size: cover;
+    background-color: #ddd;
+    margin-top: 2px;
+    margin-left: 3px;
+    box-shadow: inset 0px 0px 10px 1px white, 0px 0px 5px 1px skyblue;
+    border: 2px solid skyblue;
+  }
+
+  .content {
+    display: inline-block;
+    position: relative;
+    top: 4px;
+    padding-right: 20px;
+    vertical-align: top;
+    text-indent: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin-top: 6px;
+    color: white;
+    text-shadow: 1px 1px royalblue;
+    font-variant: small-caps;
+
+    .title {
+      font-weight: bold;
+      margin: 0;
+      max-width: 400px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.3;
+    }
+
+    .byline {
+      margin: 0;
+      max-width: 400px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.3;
+      font-size: smaller;
+    }
+  }
+}
+
+.venue {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  opacity: 0.5;
+  cursor: default;
+
+  .image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    display: inline-block;
+    background-size: cover;
+    background-color: #ddd;
+    margin-top: 2px;
+    margin-left: 3px;
+    box-shadow: inset 0px 0px 10px 1px white, 0px 0px 5px 1px skyblue;
+    border: 2px solid skyblue;
+  }
+
+  .title {
+    font-weight: bold;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial;
+    font-size: 24px;
+    text-shadow: 1px 1px #666;
+    color: #fed136;
+    margin: 0;
+    max-width: 400px;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 1.3;
+  }
+}

@@ -1,0 +1,7 @@
+@mixin showOnHover() {
+  transition: opacity 1s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}

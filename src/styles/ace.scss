@@ -1,0 +1,32 @@
+// Used by Reveal.js Plugin for Ace
+// Must be separate because it is loaded by a dynamically generated iframe
+iframe.ace {
+  width: 90%;
+}
+
+.ace_gutter-layer {
+  width: 90px !important;
+}
+
+.ace_gutter-cell { margin-right: 15px; }
+
+.ace_gutter-cell .ace_fold-widget {
+  background-image: none !important;
+  background-size: 15px 15px;
+  color: #AAA;
+  width: 20px !important;
+  position: absolute;
+  right: 15px;
+}
+
+span.ace_fold-widget.ace_open::before {
+  content: '\025BE';
+}
+
+span.ace_fold-widget.ace_closed::before {
+  content: '\025B8';
+}
+
+#editor {
+  border-radius: 0.6em;
+}

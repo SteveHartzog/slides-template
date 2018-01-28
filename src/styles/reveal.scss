@@ -1,0 +1,183 @@
+@import url('~reveal.js/css/reveal.css'); // Base
+@import url('~reveal.js/css/theme/league.css'); // Theme
+
+// NPM Installed plugins
+@import url('~highlight.js/styles/atom-one-dark.css'); // HLJS Theme
+@import url('~reveal.js-menu/menu.css');
+
+// Locally copied plugins
+@import url('../../plugins/badges/badges.css');
+// @import './aurelia-dark-plus'; // Highlight.js Theme (to be written)
+
+// Custom Slide Templates
+@import './slides';
+
+.reveal {
+
+  // Provide larger click targets by converting navigation controls to flex
+  .controls {
+    opacity: 0;    
+    @include showOnHover;
+    bottom: 0 !important;
+    display: flex !important;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 150px;
+    width: 160px;
+
+    .navigate-left {
+      position: initial;
+      flex: 0 0 51%;
+      order: 1;
+      align-self: center;
+      margin: auto 0;
+      width: 60px;
+      padding-left: 22px;
+    }
+    .navigate-right {
+      position: initial;
+      flex: 0 0 51%;
+      order: 4;
+      align-self: center;
+      margin: auto 0;
+      width: 60px;
+    }
+    .navigate-up {
+      flex: 0 0 50%;
+      order: 2;
+      position: relative;
+      right: unset !important;
+      bottom: unset !important;
+    }
+    .navigate-down {
+      flex: 0 0 50%;
+      order: 3;
+      position: relative;
+      right: unset !important;
+    }
+  }
+
+  // Plugins
+  // HLJS
+  pre {
+    width: 80% !important;
+    margin: 0 !important;
+    cursor: default;
+
+    code {
+      font-size: 35px !important; // 0.8em;
+      padding: 15px !important;
+    }
+  }
+
+  // Menu
+  .slide-menu-button {
+    opacity: 0.1;
+    @include showOnHover;
+    bottom: initial !important;
+    top: 0;
+    padding: 30px;
+    left: 0 !important;
+  }
+
+  // For ace setup outside of iframe
+  div.ace-container {
+    border-radius: 0.5em;
+    box-shadow: 0 0 15px 1px #6eaeec;
+
+    div.ace-title-bar {
+      display: flex;
+      width: 100%;
+      font-family: Tahoma;
+      border-top-left-radius: 0.5em;
+      border-top-right-radius: 0.5em;
+      background: linear-gradient(to bottom, rgba(255, 253, 255, 0.3) 0%, rgba(39, 40, 34, 0) 50%, rgba(39, 40, 34, 0.2) 98%, rgba(0, 0, 0, 1.0) 100%);
+
+      .ace-title {
+        margin-left: 15px;
+        font-family: Arial;
+        font-weight: bold;
+        font-size: 35px;
+        padding-top: 5px;
+        text-shadow: 0px 1px 0px rgba(255,255,255,.5);
+      }
+
+      .ace-mode {
+        margin-right: 15px;
+        flex-grow: 1;
+        text-align: right;
+
+        .badge {
+          border: 1px inset black;
+          border-radius: 10px;
+          background: linear-gradient( to bottom, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 40%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.2) 100% );
+          font-size: 20px;
+          top: -11px;
+          font-weight: bold;
+          padding: 5px 8px;
+          position: relative;
+          font-family: Consolas;
+          
+          &.javascript {
+            color: #000000;
+            background-color: #f1e05a;
+            text-shadow: 1px 1px grey;
+          }
+
+          &.typescript {
+            color: white;
+            background-color: #0288d1;
+            text-shadow: 1px 1px black;
+            
+          }
+
+          &.html {
+            color: #000000;
+            background-color: #e34f26;
+            text-shadow: 1px 1px black;
+          }
+        }
+      }
+    }
+
+    // Override Reveal theme for Ace Editors
+    iframe.ace {
+      max-height: unset;
+      max-width: unset;
+      height: calc(100% - 55px) !important;
+      width: 100%;
+
+      margin-top: 0;
+      margin-bottom: 5px;
+      border-radius: 0.7em;
+    }  
+  }
+  div.ace-caption {
+    font-size: 24px;
+    font-family: Tahoma;
+    margin-left: 15px;
+    margin-top: 5px;
+
+    &::before {
+      content: attr(data-title) "\025B8" " ";
+      color: red;
+      text-shadow: 1px 1px 2px palevioletred;
+    }
+  }
+}
+
+  // Header
+  header.title {
+    top: 12px;
+    position: absolute;
+    color: #13DAEC;
+    left: 75px;
+    opacity: 0.2;
+    cursor: default;
+    @include showOnHover;
+    
+    h4 {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    }
+  }
