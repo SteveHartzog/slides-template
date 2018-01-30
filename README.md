@@ -1,6 +1,7 @@
 # Slides-Template
 
 ## What and Why
+
 Tired of fighting PowerPoint or Keynote to show basic code blocks? Want a web-native presentation
 template solution? One that can show code off quickly and easily with syntax highlighting,
 collapsible regions, and line numbers? Or a d3 visualization? Or maybe a simple twitter embed?
@@ -13,14 +14,12 @@ tech & code presentations - especially if you :heart: TypeScript and Sass.
 
 To install the dependencies (make sure you have [Node.js](https://nodejs.org) installed before beginning) and start the application:
 
-1. Install and Start
+1. Shell:
     ```shell
     npm install
     npm start
     ```
-1. See the sample slide at: [http://localhost/presentations/index.html](http://localhost/presentations/index.html).
-
-> Once you start creating your own slides as detailed below (under [Presentation List](#Presentation-List)), you will see them listed at [http://localhost/](http://localhost/).
+1. Browser: Go to [http://localhost/presentations/index.html](http://localhost/presentations/index.html).
 
 ## Technical Stack
 
@@ -66,6 +65,7 @@ Here is the tech integrated and working is this template:
 ![Presentation List](./src/images/presentation-list.png)
 > Note: This list is from my local machine, yours will be empty until you create
 new html files under `/src/presentations/*`
+
 ### Title, Author, Presented
 
 Use &lt;meta&gt; tags & the &lt;title&gt; tag to get your presentation details to show up on the presentation list.
@@ -139,7 +139,8 @@ Once you have assigned the class, just create two child divs:
 ```
 
 > What are those classes on those h3's and h4's?
-> > The `.bullet` class is used here to add a bullet arrow to the left of the h3 <br/>
+> > The `.bullet` class is used here to add a bullet arrow to the left of the h3
+> >
 > > The  `.fragment` class is used by Reveal.js to reveal each one separately
 (like PowerPoint's Animation: Appear)
 
@@ -160,8 +161,19 @@ To add a custom slide title (by default it grabs the first h# tag), just add the
 ## REST Endpoint: `/api/files`
 
 This endpoint, which is also served when you `npm start`, will show a listing of all html
-files under `./src/presentations/` (except for the template slide, `./src/presentations/index.html`). 
+files under `./src/presentations/` (except for the template slide, `./src/presentations/index.html`).
 To view what is served by this endpoint:
 
-  - [http://localhost/api/files](http://localhost/api/files) with your browser
-  - [Insomnia.rest](https://insomnia.rest/): The best REST API tester ever.
+- [http://localhost/api/files](http://localhost/api/files) with your browser
+- [Insomnia.rest](https://insomnia.rest/): The best REST API tester ever.
+
+## Future Fixes & Features
+
+Feedback is requested. Let me know what you need as a speaker.
+Until then I'll be working on the following:
+
+1. Fix print/pdf output to properly hide the menu and venue.
+1. Update slide layout styles to support font sizes on all themes (switch from px to em)
+1. More and higher quality layouts
+1. Package the extended features as Reveal.js plugins
+1. Enable more plugins to be disabled, or possibly disably all and have an enabled-plugins feature
