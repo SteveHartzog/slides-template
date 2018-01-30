@@ -176,4 +176,4 @@ Until then I'll be working on the following:
 1. Update slide layout styles to support font sizes on all themes (switch from px to em)
 1. More and higher quality layouts
 1. Package the extended features as Reveal.js plugins
-1. Enable more plugins to be disabled, or possibly disably all and have an enabled-plugins feature
+1. Enable more plugins to be disabled, or possibly disable all and have an enabled-plugins feature
