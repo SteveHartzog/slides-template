@@ -1,33 +1,67 @@
 # Slides-Template
 
-I wanted a slides template ready for anything I might throw at it this year. That includes:
+## What and Why
+Tired of fighting PowerPoint or Keynote to show basic code blocks? Want a web-native presentation
+template solution? One that can show code off quickly and easily with syntax highlighting,
+collapsible regions, and line numbers? Or a d3 visualization? Or maybe a simple twitter embed?
 
-1. **Reveal.js**
-1. **TypeScript**
-1. **Sass**
-1. **FontAwesome**
-1. **Ace Editor** (it's highlighting and line numbers *CRUSH* the reveal.js default - Highlight.js)
-   - With a custom theme `ace-theme-aurelia-dark-plus`, based on the theme installed
-   by the VSCode `aurelia` plugin's theme.
-1. **D3JS**
-1. Prebuilt **`layouts`** to allow me to focus on the content.
-1. All built with **Webpack 3**... *using* **TypeScript**, preconfigured with an API to
-   read and serve up the local presentations with an `/api/files` endpoint.
-1. **ONE** run script (`npm start`) for the app build/serve **&** an API endpoint, both with HMR.
+Do you want everything preconfigured out of the box (a non-trivial task), but ready to extend?
+Well, this is simply the fastest way to get to an in-memory, ready to run template for
+tech & code presentations - especially if you :heart: TypeScript and Sass.
 
-What do I mean by `layouts`? I mean a style sheet (`./src/styles/slides.scss`) with
-custom slide layouts. I built a few to start (all using Flex):
+## Quick Start
 
-1. `.two-column`: Two columns, small left, big right.
-1. `.two-row-hero`:
-1. `.two-row-header`:
-1. `.two-row-endcap`:
-1. `.closer`: For my information packed final slides.
-> These layouts should work with all themes.
+To install the dependencies (make sure you have [Node.js](https://nodejs.org) installed before beginning) and start the application:
 
-## Presentation List Configuration
+1. Install and Start
+    ```shell
+    npm install
+    npm start
+    ```
+1. See the sample slide at: [http://localhost/presentations/index.html](http://localhost/presentations/index.html).
 
-Use meta tags & the title tag to get your slides to show up on the presentation list with full details.
+> Once you start creating your own slides as detailed below (under [Presentation List](#Presentation-List)), you will see them listed at [http://localhost/](http://localhost/).
+
+## Technical Stack
+
+Here is the tech integrated and working is this template:
+
+1. **[Reveal.js](https://revealjs.com/#/)**: The open source slide framework used by [http://slid.es](http://slid.es), here is what is preconfigured:
+    - Marked/Markdown: Built in plugin to add support markdown blocks
+    - Highlight.js: Built in plugin that provides a simplistic syntax highlighting of &lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt; blocks
+    - Zoom.js: Built in plugin that allows speakers to alt-click a slide to zoom in
+    - Speaker Notes: Built in plugin that allows speakers to press `s` to show a speaker notes view
+    - Reveal.js-Menu: Adds a menu slideout (lists slides, allows theme & transition changes)
+    - Reveal.js-Ace: Allows embedding an Ace editor into an iframe
+    - Reveald3: Allows embedding a d3 html document into an iframe
+    - Badges: Adds a language badge to Hightlight.js code blocks
+    - Elapsed Time Bar: Shows a time bar above the progressbar to help with talk pacing
+    - Embed Tweet: Allows embedding a tweet (totally formatted) of any given tweet url
+    - addHeader(): A custom extension to show the title next to the Reveal.js-menu hamburger
+    - addVenue(): A custom extension to show the venue (e.g. `</> NOVA CodeCamp 2018.1`) in the lower left corner
+    - addDetailsToToast(): A custom extension to show author/title/author image in a pill (just like slid.es does)
+
+1. **[TypeScript](https://www.typescriptlang.org/)**: JavaScript at scale is everywhere, even the `webpack.config.ts`
+1. **[Sass](http://sass-lang.com/)**: CSS with superpowers
+1. **[FontAwesome](http://fontawesome.io/)**: The iconic font and CSS toolkit
+1. **[Ace Editor](https://ace.c9.io/)**: High performance code editor for the web, now ready to embed in your slide
+   - Custom theme,  `ace-theme-aurelia-dark-plus` included matches the vscode `aurelia-dark-plus` theme by the Aurelia team
+1. **[D3JS](https://d3js.org/)**: The library used to bring data to life
+1. Prebuilt **`layouts`** to quickly focus on the presentation content
+1. **[Webpack 3](https://webpack.js.org/)** - completely built with Webpack... *using* **TypeScript**, preconfigured with an API to
+   read and serve up the local presentations with an `/api/files` endpoint
+   - Uses [webpack-dev-server](https://github.com/webpack/webpack-dev-server) to serve the site in memory (no deployment)
+   - Extended to serve an express route `/api/files` to list all HTML files in `/src/presentations`
+
+## Presentation List
+
+[https://localhost/](https://localhost/)
+
+![Presentation List](./src/images/presentation-list.png)
+
+### Title, Author, Presented
+
+Use &lt;meta&gt; tags & the &lt;title&gt; tag to get your presentation details to show up on the presentation list.
 
 ```html
 <title>Slides Template</title>
@@ -36,11 +70,20 @@ Use meta tags & the title tag to get your slides to show up on the presentation 
 <meta name="venue" content="{Venue Name}">
 ```
 
-### Presentations List: Group field
+### Technology
 
-To get a group to show on the list, create a folder underneath `presentations`:
-> `/src/presentations/javascript/*.html`, or
-`/src/presntations/javascript/my-intro-101/*.html`
+To get a technology group to show on the list, create a folder underneath `presentations`:
+
+Group | URL Example
+----- | ---
+JavaScript | `/src/presentations/javascript/intro-101.html`
+TypeScript | `/src/presentations/typescript/intro-101/index.html`
+Webpack | `/src/presentations/webpack/webpack-501/index.html`
+
+
+## Slide Configuration
+
+### Disable Plugins
 
 To disable one of the default plugins, add a CSV list of plugins to disable in
 the `data-disable-plugins` attribute on `.slides`
@@ -51,7 +94,28 @@ the `data-disable-plugins` attribute on `.slides`
 
 > Valid Plugins to disable include: `ace, badges, d3, hljs, menu, timeBar, tweets`
 
-## Slide Configuration
+### Timer
+
+To enable a timer above your progressbar (on the bottom), just add a `data-time` attribute to your `<div class="slides">` container:
+
+```html
+<div class="slides" data-timer="15"><!-- for a 15 minute talk -->
+```
+
+### Included Layouts
+
+What do I mean by `layouts`? I mean a style sheet (`./src/styles/layouts.scss`) with
+custom slide layouts. I built a few to start (all using Flex):
+
+1. `<section class="two-column">`: Two columns, small left (with shaded background), big right column
+1. `<section class="two-row-hero">`: Two rows, large big (with shaded background, designed for a 'hero' image), smaller bottom row
+1. `<section class="two-row-header">`: Two rows, small big (with shaded background), large bottom row
+1. `<section class="closer">`: For an information packed final slide, 2 columns in the first row (1 image column, 1 data column), 2nd row for contact details (2 columns).
+
+These layouts should (will shortly) work with all themes.
+
+- More layouts to come.
+- Pull requests accepted.
 
 ### Reveal.js-Menu
 
@@ -62,27 +126,11 @@ To add a custom slide title (by default it grabs the first h# tag), just add the
 <section data-menu-title="My Custom Title">
 ```
 
-## Startup
+## REST Endpoint: `/api/files`
 
-To install the dependencies and start the presentation application:
+This endpoint, which is also served when you `npm start`, will show a listing of all html
+files under `./src/presentations/` (except for the template slide, `./src/presentations/index.html`). 
+To view what is served by this endpoint:
 
-```shell
-npm install
-npm start
-```
-
-To see the slides go to: [localhost](http://localhost). By default a list will
-be shown with all presentations in `./src/presentations`.
-
-See the example template go to: [localhost/presentations](http://localhost/presentations).
-
-To view the API output (a listing of all html files under `./src/presentations/` -
-except for the template slide, `./src/presentations/index.html`) go to:
-[localhost/api/files](http://localhost/api/files) with your browser (or better yet,
-[Insomnia.rest](https://insomnia.rest/) :smile:)
-
-## Final Notes
-
-The intent with this project was not to build a highly performant,
-deployable solution. Merely an in-memory, ready to run template for
-my tech presentations.
+  - [http://localhost/api/files](http://localhost/api/files) with your browser
+  - [Insomnia.rest](https://insomnia.rest/): The best REST API tester ever.
