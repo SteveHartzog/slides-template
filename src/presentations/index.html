@@ -6,47 +6,88 @@
   <title>Slides Template</title>
   <meta name="author" content="Steve Hartzog">
   <meta name="presented" content="{Date Presented}" scheme="YYYY-MM-DD">
-  <meta name="venue" content="{Venue Name}">  
+  <meta name="venue" content="</> Nova CodeCamp 2018.1">  
+  <meta name="github" content="SteveHartzog">
 </head>
 <body>
 
-  <div class="reveal">
-    <div class="slides" data-timer="15">
+  <div class="reveal grid">
+    <div class="slides" data-timer="15" data-disable-plugins="ace">
 
-      <section>
+      <section class="title">
         <h1>Custom Presentation Template</h1>
         <h3>Based on Reveal.js + Ace Editor</h3>
-        <p>
-          <small>Created by
-            <a href="http://about.me/#">Your Name Here</a>
-          </small>
-        </p>
       </section>
 
       <section>
         <div class="tweet" data-src="https://twitter.com/NASA/status/955893239952953350"></div>
       </section>
 
-      <section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-        <h2>Background Transitions</h2>
-        <p>You can override background transitions per-slide.</p>
-        <pre><code class="hljs language-html" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
+      <section class="two-column">
+        <div>
+          <h3>First Column Header</h3>
+          <blockquote>Special quote</blockquote>
+        </div>
+        <div class="top">
+          <h3 class="bullet fragment">Bullet One</h3>
+          <h3 class="bullet fragment">Bullet Two</h3>
+          <ul class="fragment">
+            <li class="bullet">First item<br/>
+              <span class="indent">second line of first item, indented</span>
+            </li>
+          </ul>
+        </div>
       </section>
 
       <section class="fig-container" data-file="/d3-fig/collision-detection.html">
         <h3>Embed interactive D3 visualizations</h3>
-        <div class='fancy-border' style="position: absolute; width:80%; left: 100px; top: 250px">
-          You can also embed visualization into the background
-        </div>
-        <p style="position: absolute; left: 100px; top: 550px">
-          (press right/left arrows to trigger visualization transitions)
-        </p>
-        <p style="position: absolute; left: 100px; top: 600px">
-          Visualization adapted from
-          <a href='https://bl.ocks.org/mbostock/3231298' target='_blank'>Collision detection</a> by Mike Bostock</p>
+        <div class='fancy-border'>You can also embed visualization into the background</div>
+        <p>(press right/left arrows to trigger visualization transitions)</p>
+        <p>Visualization adapted from <a href='https://bl.ocks.org/mbostock/3231298' target='_blank'>Collision detection</a> by Mike Bostock</p>
       </section>
 
+      
+      <section class="center" data-menu-title="Show off Ace Editor">
+          <h2>Live Editor (Ace)</h2>
+          <div class="ace-container" style="height: 470px; width: 1200px;">
+            <div class="ace-title-bar"><span class="ace-title">Linkify</span><span class="ace-mode"><span class="badge javascript">JavaScript</span></span></div>
+            <iframe class="ace" data-mode="javascript">function linkify (selector) {
+    if (selector) {
+      let nodes = document.querySelectorAll(selector);
+      for (let node of nodes) {
+        if (!node.className) {
+          node.className += ' roll';
+        }
+      }
+    }
+  }</iframe></div>
+          <div class="ace-caption" data-title="Example 1">Made possible by
+            <a href="https://github.com/Gottox">Enno Boland</a>.</div>
+        </section>
+  
+        <section class="center">
+          <h2>Live Editor (Ace)</h2>
+          <div class="ace-container" style="height: 430px; width: 1200px;">
+              <div class="ace-title-bar"><span class="ace-title">Cars!</span><span class="ace-mode"><span class="badge typescript">TypeScript</span></span></div>
+              <iframe class="ace" data-mode="typescript">class Car {}
+  class CarCollections {
+    myCars = {};
+    constructor() {
+      let money = 'rain down';
+      myCars.hotRods: Car[] = [ {}, {} ];
+      myCars.electrics: Car[] = [ {}, {} ];
+    }
+  }</iframe></div>
+          <div class="ace-caption capLeft" data-title="Figure 2">Made possible by
+            <a href="https://github.com/Gottox">Enno Boland</a>.</div>
+        </section>  
 
+      <section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
+          <h2>Background Transitions</h2>
+          <p>You can override background transitions per-slide.</p>
+          <pre><code class="hljs language-html" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
+        </section>
+    
       <section>
         <h3>Multi-visualizations are supported</h3>
         <div class="row no-margin-top">
@@ -60,6 +101,7 @@
               <a href='https://bl.ocks.org/olearym/ec27b9ac1bf0da42ed8a0d533181693b' target='_blank'>Modular Multiplication Circle</a> by Megan O'Leary</p>
             <div class="fig-container no-margin-top" data-file="/d3-fig/modular-multiplication.html"></div>
           </div>
+        </div>
       </section>
 
       <section>
@@ -131,41 +173,6 @@
         <p class="no-margin-top">This is an embedded
           <a href='https://vega.github.io/vega-lite/' target='_blank'>vega-lite</a> figure! (with tooltip enabled)</p>
         <div class="fig-container" data-file="/d3-fig/vega-lite-scatter.html"></div>
-      </section>
-
-      <section data-menu-title="Show off Ace Editor">
-        <h2>Live Editor (Ace)</h2>
-        <div class="ace-container" style="height: 470px; width: 1200px;">
-          <div class="ace-title-bar"><span class="ace-title">Linkify</span><span class="ace-mode"><span class="badge javascript">JavaScript</span></span></div>
-          <iframe class="ace" data-mode="javascript">function linkify (selector) {
-  if (selector) {
-    let nodes = document.querySelectorAll(selector);
-    for (let node of nodes) {
-      if (!node.className) {
-        node.className += ' roll';
-      }
-    }
-  }
-}</iframe></div>
-        <div class="ace-caption" data-title="Example 1">Made possible by
-          <a href="https://github.com/Gottox">Enno Boland</a>.</div>
-      </section>
-
-      <section>
-        <h2>Live Editor (Ace)</h2>
-        <div class="ace-container" style="height: 430px; width: 1200px;">
-            <div class="ace-title-bar"><span class="ace-title">Cars!</span><span class="ace-mode"><span class="badge typescript">TypeScript</span></span></div>
-            <iframe class="ace" data-mode="typescript">class Car {}
-class CarCollections {
-  myCars = {};
-  constructor() {
-    let money = 'rain down';
-    myCars.hotRods: Car[] = [ {}, {} ];
-    myCars.electrics: Car[] = [ {}, {} ];
-  }
-}</iframe></div>
-        <div class="ace-caption capLeft" data-title="Figure 2">Made possible by
-          <a href="https://github.com/Gottox">Enno Boland</a>.</div>
       </section>
 
       <section>

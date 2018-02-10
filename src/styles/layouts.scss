@@ -47,6 +47,10 @@ html, body {
     padding: unset;
   }
 
+  .justify-center {
+    justify-content: center;
+  }
+
   .slides {
     /* Force slides to work as expected inside grid */
     position: unset;
@@ -78,6 +82,12 @@ html, body {
       grid-column: 1 / -1;
       grid-row: 1 / -1;
       height: calc(100vh - calc(var(--slide-margin) + var(--footer-margin)));
+
+      /* Default Center, Top, left */
+      display: grid !important;
+      align-content: stretch;
+      justify-content: start;
+      width: 100vw;
     }
 
     /* Basic Slide Types */
@@ -87,12 +97,25 @@ html, body {
       margin: 1.0em;
     }
 
+    section.center:not(.two-column) {
+      align-content: center;
+      justify-content: center;
+    }
+    
     section.two-column {
       display: grid !important;
       grid-template-columns: auto 1fr;
-      // grid-template-rows: auto calc(calc(var(--footer-margin) * 2) + 1.5em);
-      // grid-template-rows: calc(100vh - calc(var(--slide-margin) * 2));
-      // grid-template-rows: calc(100vh - calc(var(--slide-margin-bottom) + 0));
+      
+      &.center {
+        > div:first-child {
+          display: grid;
+          align-content: center;
+          justify-content: center;
+        }
+        > div:nth-child(2) {
+          align-content: center;
+        }
+      }
 
       > div:first-child {
         background: linear-gradient(to right, rgba(0,0,0, 0.4) 0%, rgba(0,0,0, 0.1) 100%);
@@ -103,7 +126,6 @@ html, body {
         color: darkgrey;
         text-shadow: 1px 1px dimgrey;
         padding: 0.5em;
-        // height: calc(100vh - var(--header-margin) - var(--footer-margin) - var(--slide-margin-top) - var(--slide-margin-bottom));
 
         h1, h2, h3, h4, h5, h6 {
           opacity: 0.8;
@@ -125,7 +147,7 @@ html, body {
         align-content: center;
 
         &.top {
-          align-content: unset;
+          align-content: start;
         }
       }
     }
