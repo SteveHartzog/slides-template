@@ -1,6 +1,6 @@
 {
   "name": "slides-template",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Slides Template with d3, ace, webpack, typescript, sass. All preconfigured and ready to go.",
   "main": "dist/main.js",
   "repository": {

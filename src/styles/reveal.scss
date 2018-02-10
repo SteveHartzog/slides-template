@@ -74,10 +74,14 @@
   .slide-menu-button {
     opacity: 0.1;
     @include showOnHover;
-    bottom: initial !important;
-    top: 0;
-    padding: 30px;
-    left: 0 !important;
+    position: unset !important;
+    left: unset !important;
+    bottom: unset !important;
+    z-index: unset !important;
+    // bottom: initial !important;
+    // top: 0;
+    // padding: 30px;
+    // left: 0 !important;
   }
 
   // For ace setup outside of iframe
@@ -168,16 +172,15 @@
 
   // Header
   header.title {
-    top: 12px;
-    position: absolute;
+    // top: 12px;
+    // position: absolute;
     color: #13DAEC;
-    left: 75px;
+    // left: 75px;
     opacity: 0.2;
     cursor: default;
     @include showOnHover;
     
-    h4 {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-    }
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    // margin: 0 10px 5px 10px;
+    font-variant: small-caps;
   }

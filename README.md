@@ -113,41 +113,120 @@ To enable a timer above your progressbar (on the bottom), just add the time in _
 
 `Layouts` are classes you can assign that provide some structure to your slide.
 This structure comes from the `./src/styles/layouts.scss` style sheet.
-Here are a few to start (all using Flex):
+Here are a few to start (all using grid) and must be wrapped with `<div class="reveal grid">`:
 
+1. `<section class="title">`: Standard title slide
 1. `<section class="two-column">`: Two columns, small left (with shaded background), big right column
-1. `<section class="two-row-hero">`: Two rows, large big (with shaded background, designed for a 'hero' image), smaller bottom row
-1. `<section class="two-row-header">`: Two rows, small big (with shaded background), large bottom row
-1. `<section class="closer">`: For an information packed final slide, 2 columns in the first row (1 image column, 1 data column), 2nd row for contact details (2 columns).
+1. `<section class="two-row">`: Two rows, large big (with shaded background, designed for a 'hero' image), smaller bottom row
+1. `<section class="two-row">`: Two rows, small big (with shaded background), large bottom row
+1. `<section class="two-row-bottom">`: For an information packed final slide, 2 columns in the first row (1 image column, 1 data column), 2nd row for contact details (2 columns).
 
-Once you have assigned the class, just create two child divs:
+> _Theme Compatability_. These layouts should work with all themes (all em's
+to support font-size changes). More slide layouts to come, or submit your own
+as a pull request!
 
-```html
+#### Centering
+
+By default, the slide content will be centered.
+If you wish to override this setting by adding the `top` class to a slide column
+or the `left` class to a slide row:
+
+```javascript
+<!-- Column layout with the standard left pill -->
 <section class="two-column">
-  <div>
-    <h3>First Column Header</h3>
-    <blockquote>Special quote</blockquote>
+  <div>...</div>
+  <div class="top">
+    ... content here is top aligned now.
   </div>
-  <div>
-    <h3 class="bullet fragment">Bullet One</h3>
-    <h3 class="bullet fragment">Bullet Two</h3>
-    <h4 class="bullet fragment">Sub Bullet one</h4>
-    <h3 class="bullet fragment">Bullet Three</h3>
-    <h3 class="bullet fragment">Bullet Four</h3>
+</section>
+<!-- Row layout (with the top pill) -->
+<section class="two-row-top">
+  <div>...</div>
+  <div class="left">
+    ... content here is left aligned now.
   </div>
 </section>
 ```
 
-> What are those classes on those h3's and h4's?
-> > The `.bullet` class is used here to add a bullet arrow to the left of the h3
-> >
-> > The  `.fragment` class is used by Reveal.js to reveal each one separately
-(like PowerPoint's Animation: Appear)
+#### Figures
 
-These layouts should (will shortly) work with all themes. Until then some sizes may be too big for some text.
+Occasionally you will want an image "floated" to the left.
+There is no need to use floats anymore... just use the `<figure>` element,
+which I have pre-styled to give the same effect.
 
-- More layouts to come.
-- Pull requests accepted.
+```javascript
+<figure>
+  <img src="xyz.gif" width="150px" />
+  <figcaption>Text here will show up on the right of the image</figcaption>
+</figure>
+```
+
+#### Example Slide using all options
+
+```html
+<div class="reveal grid"><div class="slides" data-timer="15">
+  <section class="two-column">
+    <div>
+      <h3>First Column Header</h3>
+      <blockquote>Special quote</blockquote>
+    </div>
+    <div class="top">
+      <h3 class="bullet fragment">Bullet One</h3>
+      <h3 class="bullet fragment">Bullet Two</h3>
+      <ul class="fragment">
+        <li class="bullet">First item<br/>
+          <span class="indent">second line of first item, indented</span>
+        </li>
+      </ul>
+      <h4 class="bullet fragment">Sub Bullet one</h4>
+      <h3 class="bullet fragment">Bullet Three</h3>
+      <h3 class="bullet fragment">Bullet Four</h3>
+    </div>
+  </section>
+</div></div>
+```
+
+### Additional Styles
+
+#### Bullets
+
+Add the `bullet` class to add a bullet arrow to the left of any element,
+it is automatically added to `ul` & `ol`, but is manually added to any other:
+
+```javascript
+<h1 class="bullet">H3 Bullet</h1>
+<h2 class="bullet">H3 Bullet</h2>
+<h3 class="bullet">H3 Bullet</h3>
+<h4 class="bullet">H3 Bullet</h4>
+```
+
+#### Fragments
+
+Reveal provides a `fragment` class that can be added to have items appear as you
+advance (like PowerPoint's Animation: Appear):
+
+```javascript
+<h1 class="fragment">H3 Bullet</h1>
+<ol class="frgrament">
+  <li></li>
+</ol>
+<ol>
+  <li>First item shows immediately</li>
+  <li class="fragment">Shows up after advancing</li>
+</ol>
+```
+
+#### Indents
+
+Occasionally you may went to wrap and indent an `li`:
+
+```javascript
+<ul>
+  <li>A long string of text<br/>
+    <span class="indent">A second line of text</span>
+  </li>
+</ul>
+```
 
 ### Reveal.js-Menu
 

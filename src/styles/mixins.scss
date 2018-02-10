@@ -5,3 +5,14 @@
     opacity: 1;
   }
 }
+
+@mixin centerChildrenFlex() {
+  display: flex; // center children
+  flex-direction: column;
+  place-content: center;
+}
+
+@mixin bullet() {
+  content: '\025B8';
+  color: red;
+}

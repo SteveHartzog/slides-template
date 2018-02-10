@@ -6,6 +6,7 @@ declare var hljs: any;
 (<any>window).Reveal = Reveal;
 
 const allFeatures = [ 'ace', 'badges', 'd3', 'hljs', 'menu', 'timeBar', 'titleFooter', 'tweets' ];
+const elReveal = document.querySelector('.reveal');
 
 document.addEventListener("DOMContentLoaded", () => {
   // Opacity is 0 to start
@@ -48,8 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
   //#endregion
 
   Reveal.initialize({
-    width: '100%',
-    height: '100%',
+    // width: '100%',
+    // height: '100%',
     center: false,
     history: true,
     margin: 0.2,
@@ -257,7 +258,7 @@ function addDetailsToast(title, byline, image) {
         <p class="byline">By ${byline}</p>
       </div>
     `;
-    document.body.appendChild(elToast);
+    elReveal.appendChild(elToast);
   }
 }
 
@@ -270,7 +271,7 @@ function addVenue(venue, sponsorLogos = []) {
       ${(sponsorLogos.length > 0) ? `<div class="image" style="background-image: url(${sponsorLogos[0]})"></div>` : ''}
       <h4 class="title">${venue}</h4>
     `;
-    document.body.appendChild(elVenue);
+    elReveal.appendChild(elVenue);
   }
 }
 
@@ -278,10 +279,8 @@ function addHeader(title) {
   if (title && title.length > 0) {
     let elTitle = document.createElement('header');
     elTitle.className = 'title';
-    elTitle.innerHTML = `
-      <h4>${title}</h4>
-    `;
-    document.body.appendChild(elTitle);
+    elTitle.innerHTML = title;
+    elReveal.appendChild(elTitle);
   }
 }
 
