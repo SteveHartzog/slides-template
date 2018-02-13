@@ -8,10 +8,10 @@
     const width = window.innerWidth;
     const height = Math.min(500, window.innerHeight);
 
-    const nNodes = 200
+    const nNodes = 200;
     let nodes = d3.range(nNodes).map(function() { let radius = Math.random() * 12 + 4;return {r: radius, originalRadius: radius}; })
     const root = nodes[0];
-    const color = d3.scaleOrdinal().range(d3.schemeCategory20)
+    const color = d3.scaleOrdinal().range(d3.schemeCategory20);
 
     root.radius = 0;
     root.fixed = true;

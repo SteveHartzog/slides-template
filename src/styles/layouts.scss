@@ -1,8 +1,8 @@
 :root {
   --slide-margin: 0.5em;
-  --header-padding: 1.0em;
+  --header-padding: 0.5em;
   --header-margin: 1.0em;
-  --footer-margin: 0.25em;
+  --footer-margin: 0.3em;
 }
 
 html, body {
@@ -16,13 +16,11 @@ html, body {
   grid-template-columns: auto 1fr auto;
   height: 100vh;
   box-sizing: border-box;
-  grid-template-areas: "menu title title" "content content content" "venue venue venue";
+  grid-template-areas: "menu menu menu" "content content content" "venue venue venue";
 
-  header.title {
-    grid-area: title;
-    margin-bottom: 0.1em;
-    font-size: 0.8em;
-    align-self: center;
+  .title {
+    margin-left: 0.5em;
+    font-family: Arial, Helvetica, sans-serif;
   }
 
   .toast.author {
@@ -47,10 +45,6 @@ html, body {
     padding: unset;
   }
 
-  .justify-center {
-    justify-content: center;
-  }
-
   .slides {
     /* Force slides to work as expected inside grid */
     position: unset;
@@ -68,7 +62,7 @@ html, body {
     display: grid;
     grid-area: content;
     grid-template-columns: auto;
-    grid-template-rows: auto;
+    grid-template-rows: auto 1fr auto;
     width: 100vw !important;
     height: unset !important;
     overflow: hidden;
@@ -77,17 +71,82 @@ html, body {
     section {
       box-sizing: border-box;
       padding: var(--slide-margin);
-      padding-top: var(--slide-margin);
-      padding-bottom: calc(var(--slide-margin) + 2.5em);
       grid-column: 1 / -1;
       grid-row: 1 / -1;
-      height: calc(100vh - calc(var(--slide-margin) + var(--footer-margin)));
 
       /* Default Center, Top, left */
       display: grid !important;
       align-content: stretch;
       justify-content: start;
       width: 100vw;
+
+      div {
+        position: relative;
+      }
+
+      div > img {
+        display: block;
+      }
+
+      .footnote {
+        position: absolute;
+        bottom: 0;
+        margin-left: 0.2em;
+    
+        &:before {
+          content: '* ';
+          color: red;
+          font-size: 1.5em;
+          position: relative;
+          top: 20px;
+          left: 10px;
+          font-weight: bold;
+        }
+      }
+
+      &:not(.two-column):not(.two-row-top):not(.two-row-bottom) {
+        * {
+          margin:0;padding:0;
+          line-height: 1.5em;
+          height: 1.5em;
+        }
+      }
+
+      // For slides with no layout (col-axis)
+      &.middle:not(.two-column):not(.two-row-top):not(.two-row-bottom) {
+        display: grid !important;
+        align-content: center;
+      }
+      
+      // For div's inside a layout (col-axis)
+      // default for two-column right-side
+      > div.middle {
+        display: grid !important;
+        align-content: center;
+      }
+
+      // For slides with no layout (row-axis)
+      &.center:not(.two-column):not(.two-row-top):not(.two-row-bottom) {
+        display: grid !important;        
+        justify-content: center;
+        height: unset;
+      }
+      
+      // default for two-column left-side pill
+      > div.top {
+        display: grid !important;
+        justify-content: start;
+      }
+
+      // default for two-column left-side pill
+      div.bottom {
+        display: grid !important;
+        align-content: end !important;
+      }
+
+      &.extra-margin {
+        margin: 1.0em;
+      }
     }
 
     /* Basic Slide Types */
@@ -97,25 +156,10 @@ html, body {
       margin: 1.0em;
     }
 
-    section.center:not(.two-column) {
-      align-content: center;
-      justify-content: center;
-    }
-    
     section.two-column {
       display: grid !important;
       grid-template-columns: auto 1fr;
       
-      &.center {
-        > div:first-child {
-          display: grid;
-          align-content: center;
-          justify-content: center;
-        }
-        > div:nth-child(2) {
-          align-content: center;
-        }
-      }
 
       > div:first-child {
         background: linear-gradient(to right, rgba(0,0,0, 0.4) 0%, rgba(0,0,0, 0.1) 100%);
@@ -126,6 +170,10 @@ html, body {
         color: darkgrey;
         text-shadow: 1px 1px dimgrey;
         padding: 0.5em;
+
+        p {
+          font-size: 0.7em;
+        }
 
         h1, h2, h3, h4, h5, h6 {
           opacity: 0.8;
@@ -155,13 +203,19 @@ html, body {
     section.two-row-top {
       display: grid !important;
       grid-template-rows: auto 1fr;
+      grid-template-columns: 1fr;
+
+      // Fix chrome row width issue
+      @media screen and (-webkit-min-device-pixel-ratio:0) {
+        grid-template-columns: auto;
+      }
 
       > div:first-child {
         display: grid;
         grid-template-columns: auto auto;
         justify-content: center;
         background: linear-gradient(to bottom, rgba(0,0,0, 0.4) 0%, rgba(0,0,0, 0.1) 100%);
-        box-shadow: inset -16px 0px 20px 0px grey, 2px 0px 2px 0px grey;
+        box-shadow: inset 0px -16px 20px 0px grey, 2px 0px 2px 0px grey;
         border-bottom-left-radius: 1.5em;
         border-bottom-right-radius: 1.5em;
         padding: 20px;
@@ -196,8 +250,7 @@ html, body {
       > div:first-child {
         display: grid;
         grid-template-columns: auto auto;
-        justify-content: center;
-        align-items: center;
+        justify-content: space-evenly;
 
         &.left {
           justify-content: left;

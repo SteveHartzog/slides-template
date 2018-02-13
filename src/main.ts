@@ -49,8 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
   //#endregion
 
   Reveal.initialize({
-    // width: '100%',
-    // height: '100%',
     center: false,
     history: true,
     margin: 0.2,
@@ -277,10 +275,12 @@ function addVenue(venue, sponsorLogos = []) {
 
 function addHeader(title) {
   if (title && title.length > 0) {
-    let elTitle = document.createElement('header');
-    elTitle.className = 'title';
-    elTitle.innerHTML = title;
-    elReveal.appendChild(elTitle);
+    setTimeout(() => {
+      let elTitle = document.createElement('span');
+      elTitle.className = 'title';      
+      elTitle.innerHTML = title;
+      document.querySelector('.slide-menu-button > a > i').appendChild(elTitle);
+    }, 1000);
   }
 }
 

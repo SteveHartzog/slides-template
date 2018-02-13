@@ -24,7 +24,7 @@
       </section>
 
       <section class="two-column">
-        <div>
+        <div class="middle">
           <h3>First Column Header</h3>
           <blockquote>Special quote</blockquote>
         </div>
@@ -39,7 +39,7 @@
         </div>
       </section>
 
-      <section class="fig-container" data-file="/d3-fig/collision-detection.html">
+      <section class="middle fig-container" data-file="/d3-fig/collision-detection.html">
         <h3>Embed interactive D3 visualizations</h3>
         <div class='fancy-border'>You can also embed visualization into the background</div>
         <p>(press right/left arrows to trigger visualization transitions)</p>
@@ -82,95 +82,86 @@
             <a href="https://github.com/Gottox">Enno Boland</a>.</div>
         </section>  
 
-      <section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
+      <section class="center middle" data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
           <h2>Background Transitions</h2>
           <p>You can override background transitions per-slide.</p>
           <pre><code class="hljs language-html" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
         </section>
     
-      <section>
+      <section class="extra-margin">
         <h3>Multi-visualizations are supported</h3>
-        <div class="row no-margin-top">
-          <div class="col-50 no-margin-top">
-            <p class="no-margin-top small">
-              <a href='https://bl.ocks.org/olearym/ec27b9ac1bf0da42ed8a0d533181693b' target='_blank'>Gooey effect - Hexagon</a> by Nadieh Bremer</p>
-            <div class="fig-container no-margin-top" data-file="/d3-fig/gooey.html"></div>
+        <div style="display: grid;grid-template-columns: 1fr 1fr;">
+          <div>
+            <p><a href='https://bl.ocks.org/olearym/ec27b9ac1bf0da42ed8a0d533181693b' target='_blank'>Gooey effect - Hexagon</a> by Nadieh Bremer</p>
+            <div class="fig-container" data-file="/d3-fig/gooey.html"></div>
           </div>
-          <div class="col-50 no-margin-top">
-            <p class="no-margin-top small">
-              <a href='https://bl.ocks.org/olearym/ec27b9ac1bf0da42ed8a0d533181693b' target='_blank'>Modular Multiplication Circle</a> by Megan O'Leary</p>
-            <div class="fig-container no-margin-top" data-file="/d3-fig/modular-multiplication.html"></div>
+          <div>
+            <p><a href='https://bl.ocks.org/olearym/ec27b9ac1bf0da42ed8a0d533181693b' target='_blank'>Modular Multiplication Circle</a> by Megan O'Leary</p>
+            <div class="fig-container" data-file="/d3-fig/modular-multiplication.html"></div>
           </div>
         </div>
       </section>
 
-      <section>
+      <section class="extra-margin">
         <h3>Independent transitions</h3>
-        <div class="row no-margin-top">
-          <div class="col-50 no-margin-top">
-            <p class="no-margin-top small">
-              <a href='https://bl.ocks.org/mbostock/4165404' target='_blank'>Rainbow worm</a> by Mike Bostock
-              <br>
+        <div style="display: grid;grid-template-columns: 1fr 1fr;">
+          <div>
+            <p><a href='https://bl.ocks.org/mbostock/4165404' target='_blank'>Rainbow worm</a> by Mike Bostock
+              <br />
               <span class="big">(transition on
                 <span class="warning">1</span> and
                 <span class="warning">3</span>)</span>
             </p>
-            <div class="fig-container no-margin-top" data-file="/d3-fig/rainbow.html"></div>
+            <div class="fig-container" data-file="/d3-fig/rainbow.html"></div>
           </div>
-          <div class="col-50 no-margin-top">
-            <p class="no-margin-top small">
-              Simple bar graph
-              <br>
+          <div>
+            <p>Simple bar graph
+              <br />
               <span class="big">(transition on
                 <span class="warning">2</span> and
                 <span class="warning">3</span>)</span>
             </p>
-            <div class="fig-container no-margin-top" data-file="/d3-fig/bar-chart.html"></div>
+            <div class="fig-container" data-file="/d3-fig/bar-chart.html"></div>
           </div>
-          <div class="no-margin-top" style="position: absolute; top: 550px">
-            <p>
-              Stage transitions independently for each visualization using Reveal.js 'data-fragment-index' (press right arrow or space)
-            </p>
+          <div>
+            <p>Stage transitions independently for each visualization using Reveal.js 'data-fragment-index' (press right arrow or space)</p>
           </div>
       </section>
 
-      <section>
+      <section class="extra-margin">
         <h3>Interaction with other elements</h3>
-
-        <div class="row no-margin-top">
-          <div class="col-50 no-margin-top left">
+        <div>
+          <div>
             <p class="small">You can interact with the embedded visualization using elements from the slide.</p>
             <p class="small">Click on the button to change the color of the nodes to yellow</p>
             <button class="btn-large btn-warning" id="recolorButton">Recolorize</button>
             <p class="small">Note: the staged transitions are still active (press right arrow or space)</p>
           </div>
-          <div class="col-50 no-margin-top">
-            <div class="fig-container no-margin-top" data-file="/d3-fig/collision-detection.html"></div>
+          <div>
+            <div class="fig-container" data-file="/d3-fig/collision-detection.html"></div>
           </div>
       </section>
 
-      <section>
+      <section class="extra-margin">
         <h3>Works with other libraries too</h3>
-        <p class="no-margin-top">Those are embedded
+        <p>Those are embedded
           <a href='https://emeeks.github.io/semiotic/#/' target='_blank'>semiotic</a> figures!</p>
-        <p class="small" style="position: absolute; top: 550px">(press right arrow to trigger an animation on the bar)</p>
-        <div class="row no-margin-top">
-          <div class="col-45">
-            <p class="small no-margin-top">(
-              <a href='https://emeeks.github.io/semiotic/#/semiotic/creatingbarchart' target='_blank'>Simple bar chart example</a>)</p>
+        <p>(press right arrow to trigger an animation on the bar)</p>
+        <div>
+          <div>
+            <p>(<a href='https://emeeks.github.io/semiotic/#/semiotic/creatingbarchart' target='_blank'>Simple bar chart example</a>)</p>
             <div class="fig-container" data-file="/d3-fig/semiotic-animated-bar.html"></div>
           </div>
-          <div class="col-55 no-margin-top">
-            <p class="small no-margin-top">(
-              <a href='https://emeeks.github.io/semiotic/#/semiotic/chord' target='_blank'>Chord diagram example</a>)</p>
+          <div>
+            <p>(<a href='https://emeeks.github.io/semiotic/#/semiotic/chord' target='_blank'>Chord diagram example</a>)</p>
             <div class="fig-container" data-file="/d3-fig/semiotic-chord.html"></div>
           </div>
         </div>
       </section>
 
-      <section>
+      <section class="extra-margin">
         <h3>Works with other libraries too (2)</h3>
-        <p class="no-margin-top">This is an embedded
+        <p>This is an embedded
           <a href='https://vega.github.io/vega-lite/' target='_blank'>vega-lite</a> figure! (with tooltip enabled)</p>
         <div class="fig-container" data-file="/d3-fig/vega-lite-scatter.html"></div>
       </section>
@@ -200,30 +191,6 @@
         </section>
       </section>
 
-      <section>
-        <section>
-          <h2>Vertical Slides</h2>
-          <p>Slides can be nested inside of each other.</p>
-          <p>Use the
-            <em>Space</em> key to navigate through all slides.</p>
-          <br>
-          <a href="#" class="navigate-down">
-            <img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-          </a>
-        </section>
-        <section>
-          <h2>Basement Level 1</h2>
-          <p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-        </section>
-        <section>
-          <h2>Basement Level 2</h2>
-          <p>That's it, time to go back up.</p>
-          <br>
-          <a href="#/2">
-            <img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-          </a>
-        </section>
-      </section>
 
       <section>
         <h2>Features</h2>
@@ -235,7 +202,7 @@
           slides off the screen.</p>
       </section>
 
-      <section data-markdown>
+      <section class="extra-margin middle" data-markdown>
         <script type="text/template">
           ## Markdown support
       
@@ -243,7 +210,7 @@
           Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
       
           ```markdown
-          <section data-markdown>
+          <section style="width: 80vw;" data-markdown>
             ## Markdown support
       
             Write content using inline or external Markdown.
@@ -253,8 +220,8 @@
         </script>
       </section>
 
-      <section>
-        <section id="fragments">
+      <section class="center extra-margin">
+        <section class="top center" id="fragments" style="margin:0; height:0">
           <h2>Fragments</h2>
           <p>Hit the next arrow...</p>
           <p class="fragment">... to step through ...</p>
@@ -268,7 +235,8 @@
             This slide has fragments which are also stepped through in the notes window.
           </aside>
         </section>
-        <section>
+
+        <section class="top extra-margin">
           <h2>Fragment Styles</h2>
           <p>There's different types of fragments, like:</p>
           <p class="fragment grow">grow</p>
@@ -284,7 +252,7 @@
         </section>
       </section>
 
-      <section id="transitions">
+      <section class="center" id="transitions">
         <h2>Transition Styles</h2>
         <p>
           You can select from different transitions, like:
@@ -298,7 +266,7 @@
         </p>
       </section>
 
-      <section id="themes">
+      <section class="center" id="themes">
         <h2>Themes</h2>
         <p>
           reveal.js comes with a few themes built in:
@@ -319,7 +287,7 @@
         </p>
       </section>
 
-      <section>
+      <section class="center">
         <section data-background="#dddddd">
           <h2>Slide Backgrounds</h2>
           <p>
