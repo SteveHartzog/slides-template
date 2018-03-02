@@ -6,11 +6,11 @@
   <title>Slides Template</title>
   <meta name="author" content="Steve Hartzog">
   <meta name="presented" content="{Date Presented}" scheme="YYYY-MM-DD">
-  <meta name="venue" content="</> Nova CodeCamp 2018.1">  
+  <meta name="venue" content="</> Nova CodeCamp 2018.1">
   <meta name="github" content="SteveHartzog">
 </head>
-<body>
 
+<body>
   <div class="reveal grid">
     <div class="slides" data-timer="15" data-disable-plugins="ace">
 
@@ -32,7 +32,8 @@
           <h3 class="bullet fragment">Bullet One</h3>
           <h3 class="bullet fragment">Bullet Two</h3>
           <ul class="fragment">
-            <li class="bullet">First item<br/>
+            <li class="bullet">First item
+              <br/>
               <span class="indent">second line of first item, indented</span>
             </li>
           </ul>
@@ -43,60 +44,76 @@
         <h3>Embed interactive D3 visualizations</h3>
         <div class='fancy-border'>You can also embed visualization into the background</div>
         <p>(press right/left arrows to trigger visualization transitions)</p>
-        <p>Visualization adapted from <a href='https://bl.ocks.org/mbostock/3231298' target='_blank'>Collision detection</a> by Mike Bostock</p>
+        <p>Visualization adapted from
+          <a href='https://bl.ocks.org/mbostock/3231298' target='_blank'>Collision detection</a> by Mike Bostock</p>
       </section>
 
-      
+
       <section class="center" data-menu-title="Show off Ace Editor">
-          <h2>Live Editor (Ace)</h2>
-          <div class="ace-container" style="height: 470px; width: 1200px;">
-            <div class="ace-title-bar"><span class="ace-title">Linkify</span><span class="ace-mode"><span class="badge javascript">JavaScript</span></span></div>
-            <iframe class="ace" data-mode="javascript">function linkify (selector) {
-    if (selector) {
-      let nodes = document.querySelectorAll(selector);
-      for (let node of nodes) {
-        if (!node.className) {
-          node.className += ' roll';
-        }
+        <h2>Live Editor (Ace)</h2>
+        <div class="ace-container" style="height: 470px; width: 1200px;">
+          <div class="ace-title-bar">
+            <span class="ace-title">Linkify</span>
+            <span class="ace-mode">
+              <span class="badge javascript">JavaScript</span>
+            </span>
+          </div>
+          <iframe class="ace" data-mode="javascript"><pre>function linkify (selector) {
+  if (selector) {
+    let nodes = document.querySelectorAll(selector);
+    for (let node of nodes) {
+      if (!node.className) {
+        node.className += ' roll';
       }
     }
-  }</iframe></div>
+  }
+}</pre></iframe>
+        </div>
         <div class="ace-caption" data-title="Example 1">Made possible by
-          <a href="https://github.com/Gottox">Enno Boland</a>.</div>
+          <a href="https://github.com/Gottox">Enno Boland</a>.
+        </div>
       </section>
-  
+
       <section class="center">
         <h2>Live Editor (Ace)</h2>
         <div class="ace-container" style="height: 430px; width: 1200px;">
-            <div class="ace-title-bar"><span class="ace-title">Cars!</span><span class="ace-mode"><span class="badge typescript">TypeScript</span></span></div>
-            <iframe class="ace" data-mode="typescript">class Car {}
-  class CarCollections {
-    myCars = {};
-    constructor() {
-      let money = 'rain down';
-      myCars.hotRods: Car[] = [ {}, {} ];
-      myCars.electrics: Car[] = [ {}, {} ];
-    }
-  }</iframe></div>
+          <div class="ace-title-bar">
+            <span class="ace-title">Cars!</span>
+            <span class="ace-mode">
+              <span class="badge typescript">TypeScript</span>
+            </span>
+          </div>
+          <iframe class="ace" data-mode="typescript"><pre>class Car {}
+class CarCollections {
+  myCars = {};
+  constructor() {
+    let money = 'rain down';
+    myCars.hotRods: Car[] = [ {}, {} ];
+    myCars.electrics: Car[] = [ {}, {} ];
+  }
+}</pre></iframe>
+        </div>
         <div class="ace-caption capLeft" data-title="Figure 2">Made possible by
           <a href="https://github.com/Gottox">Enno Boland</a>.</div>
-      </section>  
+      </section>
 
       <section class="center middle" data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
         <h2>Background Transitions</h2>
         <p>You can override background transitions per-slide.</p>
         <pre><code class="hljs language-html" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
       </section>
-    
+
       <section class="extra-margin">
         <h3>Multi-visualizations are supported</h3>
-        <div style="display: grid;grid-template-columns: 1fr 1fr;">
+        <div class="block-2col" style="height: 550px;">
           <div>
-            <p><a href='https://bl.ocks.org/olearym/ec27b9ac1bf0da42ed8a0d533181693b' target='_blank'>Gooey effect - Hexagon</a> by Nadieh Bremer</p>
+            <p>
+              <a href='https://bl.ocks.org/olearym/ec27b9ac1bf0da42ed8a0d533181693b' target='_blank'>Gooey effect - Hexagon</a> by Nadieh Bremer</p>
             <div class="fig-container" data-file="/d3-fig/gooey.html"></div>
           </div>
           <div>
-            <p><a href='https://bl.ocks.org/olearym/ec27b9ac1bf0da42ed8a0d533181693b' target='_blank'>Modular Multiplication Circle</a> by Megan O'Leary</p>
+            <p>
+              <a href='https://bl.ocks.org/olearym/ec27b9ac1bf0da42ed8a0d533181693b' target='_blank'>Modular Multiplication Circle</a> by Megan O'Leary</p>
             <div class="fig-container" data-file="/d3-fig/modular-multiplication.html"></div>
           </div>
         </div>
@@ -104,9 +121,10 @@
 
       <section class="extra-margin">
         <h3>Independent transitions</h3>
-        <div style="display: grid;grid-template-columns: 1fr 1fr;">
+        <div class="block-2col" style="height: 200px;">
           <div>
-            <p><a href='https://bl.ocks.org/mbostock/4165404' target='_blank'>Rainbow worm</a> by Mike Bostock
+            <p>
+              <a href='https://bl.ocks.org/mbostock/4165404' target='_blank'>Rainbow worm</a> by Mike Bostock
               <br />
               <span class="big">(transition on
                 <span class="warning">1</span> and
@@ -124,22 +142,22 @@
             <div class="fig-container" data-file="/d3-fig/bar-chart.html"></div>
           </div>
           <div>
-            <p>Stage transitions independently for each visualization using Reveal.js 'data-fragment-index' (press right arrow or space)</p>
+            <p>Stage transitions independently for each visualization using Reveal.js 'data-fragment-index' (press right arrow
+              or space)</p>
           </div>
       </section>
 
       <section class="extra-margin">
         <h3>Interaction with other elements</h3>
-        <div>
-          <div>
-            <p class="small">You can interact with the embedded visualization using elements from the slide.</p>
-            <p class="small">Click on the button to change the color of the nodes to yellow</p>
-            <button class="btn-large btn-warning" id="recolorButton">Recolorize</button>
-            <p class="small">Note: the staged transitions are still active (press right arrow or space)</p>
-          </div>
-          <div>
-            <div class="fig-container" data-file="/d3-fig/collision-detection.html"></div>
-          </div>
+        <div style="height: unset; line-height: unset;">
+          <p class="small">You can interact with the embedded visualization using elements from the slide.</p>
+          <p class="small">Click on the button to change the color of the nodes to yellow</p>
+          <button class="btn-large btn-warning" id="recolorButton">Recolorize</button>
+          <p class="small">Note: the staged transitions are still active (press right arrow or space)</p>
+        </div>
+        <div style="height: unset; line-height: unset;">
+          <div class="fig-container" data-file="/d3-fig/collision-detection.html"></div>
+        </div>
       </section>
 
       <section class="extra-margin">
@@ -147,13 +165,15 @@
         <p>Those are embedded
           <a href='https://emeeks.github.io/semiotic/#/' target='_blank'>semiotic</a> figures!</p>
         <p>(press right arrow to trigger an animation on the bar)</p>
-        <div>
+        <div class="block-2col" style="height: 500px;">
           <div>
-            <p>(<a href='https://emeeks.github.io/semiotic/#/semiotic/creatingbarchart' target='_blank'>Simple bar chart example</a>)</p>
+            <p>(
+              <a href='https://emeeks.github.io/semiotic/#/semiotic/creatingbarchart' target='_blank'>Simple bar chart example</a>)</p>
             <div class="fig-container" data-file="/d3-fig/semiotic-animated-bar.html"></div>
           </div>
           <div>
-            <p>(<a href='https://emeeks.github.io/semiotic/#/semiotic/chord' target='_blank'>Chord diagram example</a>)</p>
+            <p>(
+              <a href='https://emeeks.github.io/semiotic/#/semiotic/chord' target='_blank'>Chord diagram example</a>)</p>
             <div class="fig-container" data-file="/d3-fig/semiotic-chord.html"></div>
           </div>
         </div>
@@ -204,14 +224,14 @@
       <section class="extra-margin middle" data-markdown>
         <script type="text/template">
           ## Markdown support
-      
+
           Write content using inline or external Markdown.
           Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-      
+
           ```markdown
           <section data-markdown>
             ## Markdown support
-      
+
             Write content using inline or external Markdown.
             Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
           </section>
@@ -301,8 +321,7 @@
           <h2>Image Backgrounds</h2>
           <pre><code style="width: 80vw;" class="hljs language-html">&lt;section data-background="/images/backgrounds/dark-blue-pattern-flower.jpeg"&gt;</code></pre>
         </section>
-        <section class="center" data-background="/images/backgrounds/black-weave.jpg" data-background-repeat="repeat"
-          data-background-size="100px">
+        <section class="center" data-background="/images/backgrounds/black-weave.jpg" data-background-repeat="repeat" data-background-size="100px">
           <h2>Tiled Backgrounds</h2>
           <pre><code class="hljs language-css" style="width: 80vw; word-wrap: break-word;">&lt;section data-background="/images/backgrounds/black-weave.jpg" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
         </section>
@@ -428,10 +447,10 @@
       </section>
 
       </div>
-      </div>
+    </div>
 
-      <link id="theme" href="/node_modules/reveal.js/css/theme/league.css" rel="stylesheet" type="text/css" />
-      <script src="/main.js"></script>
+    <link id="theme" href="/node_modules/reveal.js/css/theme/league.css" rel="stylesheet" type="text/css" />
+    <script src="/main.js"></script>
 </body>
 
 </html>

@@ -1,11 +1,12 @@
 :root {
   --slide-margin: 0.5em;
   --header-padding: 0.5em;
-  --header-margin: 1.0em;
+  --header-margin: 1em;
   --footer-margin: 0.3em;
 }
 
-html, body {
+html,
+body {
   width: unset;
   height: unset;
 }
@@ -17,6 +18,18 @@ html, body {
   height: 100vh;
   box-sizing: border-box;
   grid-template-areas: "menu menu menu" "content content content" "venue venue venue";
+
+  .slides {
+    // Undo absolute positioning
+    position: unset;
+    width: unset;
+    height: unset;
+    top: unset;
+    right: unset;
+    bottom: unset;
+    left: unset;
+    margin: unset;
+  }
 
   .title {
     margin-left: 0.5em;
@@ -39,7 +52,8 @@ html, body {
     cursor: pointer;
   }
 
-  .slides > section, .slides > section > section {
+  .slides > section,
+  .slides > section > section {
     position: unset;
     width: unset;
     padding: unset;
@@ -80,7 +94,8 @@ html, body {
       justify-content: start;
       width: 100vw;
 
-      p, blockquote { 
+      p,
+      blockquote {
         display: inline-table;
       }
 
@@ -100,7 +115,8 @@ html, body {
             }
           }
 
-          &.future, &.past {
+          &.future,
+          &.past {
             display: none !important;
           }
 
@@ -108,7 +124,6 @@ html, body {
           //   justify-content: unset !important;
           // }
         }
-
       }
 
       div {
@@ -123,9 +138,9 @@ html, body {
         position: absolute;
         bottom: 0;
         margin-left: 0.2em;
-    
+
         &:before {
-          content: '* ';
+          content: "* ";
           color: red;
           font-size: 1.5em;
           position: relative;
@@ -137,7 +152,8 @@ html, body {
 
       &:not(.two-column):not(.two-row-top):not(.two-row-bottom) {
         * {
-          margin:0;padding:0;
+          margin: 0;
+          padding: 0;
           line-height: 1.5em;
           height: 1.5em;
         }
@@ -148,29 +164,30 @@ html, body {
         display: grid !important;
         align-content: center;
       }
-      
+
       // For div's inside a layout (col-axis)
       // default for two-column right-side
       > div.middle {
         display: grid !important;
-        align-content: center;
+        // align-content: center;
+        overflow: hidden;
       }
 
       // For slides with no layout (row-axis)
       &.center:not(.two-column):not(.two-row-top):not(.two-row-bottom) {
-        display: grid !important;        
+        display: grid !important;
         justify-content: center;
         align-content: center;
         height: unset;
 
         .tweet {
-          height: 100%;
-          position: relative;
-          left: unset;
-          transform: unset;
+          height: 102%;
+          position: unset !important;
+          left: unset !important;
+          transform: unset !important;
         }
       }
-      
+
       // default for two-column left-side pill
       > div.top {
         display: grid !important;
@@ -184,28 +201,40 @@ html, body {
       }
 
       &.extra-margin {
-        margin: 1.0em;
+        margin: 1em;
+      }
+
+      div.block-2col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        div {
+          height: unset !important;
+          line-height: unset !important;
+        }
+      }
+
+      a img {
+        height: unset !important;
       }
     }
 
     /* Basic Slide Types */
     section.title {
-      display:grid !important;
+      display: grid !important;
       align-content: center;
-      margin: 1.0em;
+      margin: 1em;
     }
 
     section.two-column {
       display: grid !important;
       grid-template-columns: auto 1fr;
-      
+      overflow: initial;
 
       > div:first-child {
-        background: linear-gradient(to right, rgba(0,0,0, 0.4) 0%, rgba(0,0,0, 0.1) 100%);
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 100%);
         box-shadow: inset -16px 0px 20px 0px grey, 2px 0px 2px 0px grey;
         border-top-right-radius: 1.5em;
         border-bottom-right-radius: 1.5em;
-        text-shadow: 1px 1px black;
         color: darkgrey;
         text-shadow: 1px 1px dimgrey;
         padding: 0.5em;
@@ -214,7 +243,12 @@ html, body {
           font-size: 0.7em;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
           opacity: 0.8;
         }
 
@@ -238,14 +272,14 @@ html, body {
         }
       }
     }
-    
+
     section.two-row-top {
       display: grid !important;
       grid-template-rows: auto 1fr;
       grid-template-columns: 1fr;
 
       // Fix chrome row width issue
-      @media screen and (-webkit-min-device-pixel-ratio:0) {
+      @media screen and (-webkit-min-device-pixel-ratio: 0) {
         grid-template-columns: auto;
       }
 
@@ -253,7 +287,7 @@ html, body {
         display: grid;
         grid-template-columns: auto auto;
         justify-content: center;
-        background: linear-gradient(to bottom, rgba(0,0,0, 0.4) 0%, rgba(0,0,0, 0.1) 100%);
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 100%);
         box-shadow: inset 0px -16px 20px 0px grey, 2px 0px 2px 0px grey;
         border-bottom-left-radius: 1.5em;
         border-bottom-right-radius: 1.5em;
@@ -293,7 +327,7 @@ html, body {
 
         &.left {
           justify-content: left;
-          margin-left: 1.0em;
+          margin-left: 1em;
         }
 
         > div:first-child {
@@ -305,7 +339,10 @@ html, body {
         > div:nth-child(2) {
           text-align: left;
 
-          h2, h3, h4, h5 {
+          h2,
+          h3,
+          h4,
+          h5 {
             margin-bottom: 0;
             padding-bottom: 0;
           }
@@ -320,11 +357,11 @@ html, body {
       }
 
       > div:nth-child(2) {
-        background: linear-gradient(to top, rgba(0,0,0, 0.4) 0%, rgba(0,0,0, 0.1) 100%);
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 100%);
         box-shadow: inset 0px 10px 20px 0px grey, 2px 0px 2px 0px grey;
         border-top-left-radius: 1.5em;
         border-top-right-radius: 1.5em;
-        padding: 1.0em;
+        padding: 1em;
 
         display: grid;
         grid-template-columns: auto auto;
@@ -347,7 +384,7 @@ html, body {
 
         p {
           margin: 0;
-          line-height: 1.0;
+          line-height: 1;
           text-shadow: 1px 1px black;
         }
 
@@ -356,12 +393,12 @@ html, body {
           flex-direction: column;
           flex-wrap: nowrap;
           justify-content: flex-end;
-          
+
           p {
             color: skyblue;
           }
           h3 {
-            margin-bottom: 1.0em;
+            margin-bottom: 1em;
           }
         }
 
@@ -375,4 +412,9 @@ html, body {
       }
     }
   }
-}  
+
+  // Fix d3 iframe container height
+  div.fig-container {
+    height: 100% !important;
+  }
+}

@@ -1,22 +1,21 @@
-@import url('~reveal.js/css/reveal.css'); // Base
-@import url('~reveal.js/css/theme/league.css'); // Theme
+@import url("~reveal.js/css/reveal.css"); // Base
+@import url("~reveal.js/css/theme/league.css"); // Default Theme
 
 // NPM Installed plugins
-@import url('~highlight.js/styles/atom-one-dark.css'); // HLJS Theme
-@import url('~reveal.js-menu/menu.css');
+@import url("~highlight.js/styles/atom-one-dark.css"); // HLJS Theme
+@import url("~reveal.js-menu/menu.css");
 
 // Locally copied plugins
-@import url('../../plugins/badges/badges.css');
+@import url("../../plugins/badges/badges.css");
 // @import './aurelia-dark-plus'; // Highlight.js Theme (to be written)
 
 // Custom Slide Layouts
-@import './layouts';
+@import "./layouts";
 
 .reveal {
-
   // Provide larger click targets by converting navigation controls to flex
   .controls {
-    opacity: 0;    
+    opacity: 0;
     @include showOnHover;
     bottom: 0 !important;
     display: flex !important;
@@ -90,12 +89,19 @@
     box-shadow: 0 0 15px 1px #6eaeec;
 
     div.ace-title-bar {
+      cursor: default;
       display: flex;
       width: 100%;
       font-family: Tahoma;
       border-top-left-radius: 0.5em;
       border-top-right-radius: 0.5em;
-      background: linear-gradient(to bottom, rgba(255, 253, 255, 0.3) 0%, rgba(39, 40, 34, 0) 50%, rgba(39, 40, 34, 0.2) 98%, rgba(0, 0, 0, 1.0) 100%);
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 253, 255, 0.3) 0%,
+        rgba(39, 40, 34, 0) 50%,
+        rgba(39, 40, 34, 0.2) 98%,
+        rgba(0, 0, 0, 1) 100%
+      );
 
       .ace-title {
         margin-left: 15px !important;
@@ -103,7 +109,7 @@
         font-weight: bold;
         font-size: 35px;
         padding-top: 5px;
-        text-shadow: 0px 1px 0px rgba(255,255,255,.5);
+        text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
       }
 
       .ace-mode {
@@ -114,14 +120,20 @@
         .badge {
           border: 1px inset black;
           border-radius: 10px;
-          background: linear-gradient( to bottom, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 40%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.2) 100% );
+          background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.3) 0%,
+            rgba(255, 255, 255, 0) 40%,
+            rgba(0, 0, 0, 0) 60%,
+            rgba(0, 0, 0, 0.2) 100%
+          );
           font-size: 20px;
           top: -11px;
           font-weight: bold;
           padding: 5px 8px;
           position: relative;
           font-family: Consolas;
-          
+
           &.javascript {
             color: #000000;
             background-color: #f1e05a;
@@ -132,7 +144,6 @@
             color: white;
             background-color: #0288d1;
             text-shadow: 1px 1px black;
-            
           }
 
           &.html {
@@ -153,8 +164,9 @@
 
       margin-top: 0;
       margin-bottom: 5px;
-      border-radius: 0.7em;
-    }  
+      border-bottom-left-radius: 0.7em;
+      border-bottom-right-radius: 0.7em;
+    }
   }
   div.ace-caption {
     font-size: 24px;
@@ -170,17 +182,17 @@
   }
 }
 
-  // Header
-  header.title {
-    // top: 12px;
-    // position: absolute;
-    color: #13DAEC;
-    // left: 75px;
-    opacity: 0.2;
-    cursor: default;
-    @include showOnHover;
-    
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    // margin: 0 10px 5px 10px;
-    font-variant: small-caps;
-  }
+// Header
+header.title {
+  // top: 12px;
+  // position: absolute;
+  color: #13daec;
+  // left: 75px;
+  opacity: 0.2;
+  cursor: default;
+  @include showOnHover;
+
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  // margin: 0 10px 5px 10px;
+  font-variant: small-caps;
+}
