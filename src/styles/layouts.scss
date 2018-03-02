@@ -80,6 +80,37 @@ html, body {
       justify-content: start;
       width: 100vw;
 
+      p, blockquote { 
+        display: inline-table;
+      }
+
+      &.stack {
+        section {
+          width: calc(100vw - calc(var(--slide-margin) * 2));
+          height: unset;
+
+          p {
+            display: inline-table;
+          }
+
+          a {
+            display: contents;
+            img {
+              height: unset;
+            }
+          }
+
+          &.future, &.past {
+            display: none !important;
+          }
+
+          // &.center {
+          //   justify-content: unset !important;
+          // }
+        }
+
+      }
+
       div {
         position: relative;
       }
@@ -129,7 +160,15 @@ html, body {
       &.center:not(.two-column):not(.two-row-top):not(.two-row-bottom) {
         display: grid !important;        
         justify-content: center;
+        align-content: center;
         height: unset;
+
+        .tweet {
+          height: 100%;
+          position: relative;
+          left: unset;
+          transform: unset;
+        }
       }
       
       // default for two-column left-side pill

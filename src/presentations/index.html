@@ -19,7 +19,7 @@
         <h3>Based on Reveal.js + Ace Editor</h3>
       </section>
 
-      <section>
+      <section class="center">
         <div class="tweet" data-src="https://twitter.com/NASA/status/955893239952953350"></div>
       </section>
 
@@ -61,15 +61,15 @@
       }
     }
   }</iframe></div>
-          <div class="ace-caption" data-title="Example 1">Made possible by
-            <a href="https://github.com/Gottox">Enno Boland</a>.</div>
-        </section>
+        <div class="ace-caption" data-title="Example 1">Made possible by
+          <a href="https://github.com/Gottox">Enno Boland</a>.</div>
+      </section>
   
-        <section class="center">
-          <h2>Live Editor (Ace)</h2>
-          <div class="ace-container" style="height: 430px; width: 1200px;">
-              <div class="ace-title-bar"><span class="ace-title">Cars!</span><span class="ace-mode"><span class="badge typescript">TypeScript</span></span></div>
-              <iframe class="ace" data-mode="typescript">class Car {}
+      <section class="center">
+        <h2>Live Editor (Ace)</h2>
+        <div class="ace-container" style="height: 430px; width: 1200px;">
+            <div class="ace-title-bar"><span class="ace-title">Cars!</span><span class="ace-mode"><span class="badge typescript">TypeScript</span></span></div>
+            <iframe class="ace" data-mode="typescript">class Car {}
   class CarCollections {
     myCars = {};
     constructor() {
@@ -78,15 +78,15 @@
       myCars.electrics: Car[] = [ {}, {} ];
     }
   }</iframe></div>
-          <div class="ace-caption capLeft" data-title="Figure 2">Made possible by
-            <a href="https://github.com/Gottox">Enno Boland</a>.</div>
-        </section>  
+        <div class="ace-caption capLeft" data-title="Figure 2">Made possible by
+          <a href="https://github.com/Gottox">Enno Boland</a>.</div>
+      </section>  
 
       <section class="center middle" data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-          <h2>Background Transitions</h2>
-          <p>You can override background transitions per-slide.</p>
-          <pre><code class="hljs language-html" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
-        </section>
+        <h2>Background Transitions</h2>
+        <p>You can override background transitions per-slide.</p>
+        <pre><code class="hljs language-html" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
+      </section>
     
       <section class="extra-margin">
         <h3>Multi-visualizations are supported</h3>
@@ -167,7 +167,7 @@
       </section>
 
       <section>
-        <section>
+        <section class="center">
           <h2>Vertical Slides</h2>
           <p>Slides can be nested inside of each other.</p>
           <p>Use the
@@ -177,11 +177,11 @@
             <img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
           </a>
         </section>
-        <section>
+        <section class="center">
           <h2>Basement Level 1</h2>
           <p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
         </section>
-        <section>
+        <section class="center">
           <h2>Basement Level 2</h2>
           <p>That's it, time to go back up.</p>
           <br>
@@ -191,8 +191,7 @@
         </section>
       </section>
 
-
-      <section>
+      <section class="center">
         <h2>Features</h2>
         <p>Press
           <strong>ESC</strong> to enter the slide overview.</p>
@@ -210,7 +209,7 @@
           Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
       
           ```markdown
-          <section style="width: 80vw;" data-markdown>
+          <section data-markdown>
             ## Markdown support
       
             Write content using inline or external Markdown.
@@ -287,47 +286,45 @@
         </p>
       </section>
 
-      <section class="center">
-        <section data-background="#dddddd">
+      <section>
+        <section class="center" data-background="#dddddd">
           <h2>Slide Backgrounds</h2>
           <p>
             Set
             <code class="language-css">data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
           </p>
           <a href="#" class="navigate-down">
-            <img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+            <img style="height: 238px; width: 178px;" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
           </a>
         </section>
-        <section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
+        <section class="center" data-background="/images/backgrounds/dark-blue-pattern-flower.jpeg">
           <h2>Image Backgrounds</h2>
-          <pre><code class="hljs language-html">&lt;section data-background="image.png"&gt;</code></pre>
+          <pre><code style="width: 80vw;" class="hljs language-html">&lt;section data-background="/images/backgrounds/dark-blue-pattern-flower.jpeg"&gt;</code></pre>
         </section>
-        <section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat"
+        <section class="center" data-background="/images/backgrounds/black-weave.jpg" data-background-repeat="repeat"
           data-background-size="100px">
           <h2>Tiled Backgrounds</h2>
-          <pre><code class="hljs language-css" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
+          <pre><code class="hljs language-css" style="width: 80vw; word-wrap: break-word;">&lt;section data-background="/images/backgrounds/black-weave.jpg" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
         </section>
-        <section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm"
+        <section class="center" data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm"
           data-background-color="#000000">
           <div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
             <h2>Video Backgrounds</h2>
             <pre><code class="hljs language-html" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
           </div>
         </section>
-        <section data-background="http://i.giphy.com/90F8aUepslB84.gif">
+        <section class="center" data-background="http://i.giphy.com/90F8aUepslB84.gif">
           <h2>... and GIFs!</h2>
         </section>
       </section>
 
-      <section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+      <section class="center" data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
         <h2>Background Transitions</h2>
-        <p>
-          Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-        </p>
+        <p>Different background transitions are available via the backgroundTransition option. This one's called "zoom".</p>
         <pre><code class="hljs language-javascript">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
       </section>
 
-      <section>
+      <section class="center">
         <h2>Marvelous List</h2>
         <ul>
           <li>No order here</li>
@@ -337,7 +334,7 @@
         </ul>
       </section>
 
-      <section>
+      <section class="center">
         <h2>Fantastic Ordered List</h2>
         <ol>
           <li>One is smaller than...</li>
@@ -376,7 +373,7 @@
         </table>
       </section>
 
-      <section>
+      <section class="center">
         <h2>Clever Quotes</h2>
         <p>
           These guys come in two forms, inline:
@@ -388,7 +385,7 @@
         </blockquote>
       </section>
 
-      <section>
+      <section class="center">
         <h2>Intergalactic Interconnections</h2>
         <p>
           You can link between slides internally,
@@ -396,7 +393,7 @@
         </p>
       </section>
 
-      <section>
+      <section class="center">
         <h2>Speaker View</h2>
         <p>There's a
           <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>

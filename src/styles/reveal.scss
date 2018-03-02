@@ -98,7 +98,7 @@
       background: linear-gradient(to bottom, rgba(255, 253, 255, 0.3) 0%, rgba(39, 40, 34, 0) 50%, rgba(39, 40, 34, 0.2) 98%, rgba(0, 0, 0, 1.0) 100%);
 
       .ace-title {
-        margin-left: 15px;
+        margin-left: 15px !important;
         font-family: Arial;
         font-weight: bold;
         font-size: 35px;
@@ -107,7 +107,7 @@
       }
 
       .ace-mode {
-        margin-right: 15px;
+        margin-right: 15px !important;
         flex-grow: 1;
         text-align: right;
 
