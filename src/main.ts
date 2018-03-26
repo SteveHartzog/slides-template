@@ -1,5 +1,5 @@
 const head = require("../node_modules/reveal.js/lib/js/head.min");
-import * as Reveal from "./grid-reveal.js";
+import * as Reveal from "reveal.js";
 import "./styles/presentations.scss";
 
 declare var hljs: any;
@@ -55,8 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
   //#endregion
 
   Reveal.initialize({
-    // Overrride display to support grid, comment out if not using layout .grid class
-    overrideLayout: true,
+    // Disables the default reveal.js slide layout so that you can use
+		// custom CSS layout
+    disableLayout: true,
 
     center: false,
     history: true,

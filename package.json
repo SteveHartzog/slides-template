@@ -41,7 +41,7 @@
     "node-dir": "^0.1.17",
     "node-sass": "^4.7.2",
     "pretty-bytes": "^4.0.2",
-    "reveal.js": "3.6.0",
+    "reveal.js": "git+https://github.com/hakimel/reveal.js.git#6dbc5932806a4dfe59e035cea55b0c9673133215",
     "reveal.js-menu": "^0.9.1",
     "reveald3": "^1.2.0",
     "sass-loader": "^6.0.6",
