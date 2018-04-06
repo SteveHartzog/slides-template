@@ -37,7 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
     timeBar: false,
     tweets: false
   };
-  let timer = 3;
 
   let attrDisabledFeatures = document.querySelector(".slides").getAttribute("data-features-disable");
   if (attrDisabledFeatures) {
@@ -47,12 +46,15 @@ document.addEventListener("DOMContentLoaded", () => {
         disabledPlugins[disabledFeatures[i].trim()] = true;
       }
     }
-    const timerData = document.querySelector(".slides").getAttribute("data-timer");
-    if (!disabledPlugins.timeBar && timerData) {
-      timer = parseInt(timerData);
-    }
   }
   //#endregion
+
+  // Gather ElapsedTimeBar Config
+  let timer = 3;
+  const timerData = document.querySelector(".slides").getAttribute("data-timer");
+  if (timerData) {
+    timer = parseInt(timerData);
+  }
 
   Reveal.initialize({
     // Disables the default reveal.js slide layout so that you can use
@@ -63,14 +65,14 @@ document.addEventListener("DOMContentLoaded", () => {
     history: true,
     margin: 0.2,
 
-    // Elapsed Time Bar (https://github.com/e-gor/Reveal.js-Title-Footer)
+    // Elapsed Time Bar (https://github.com/tkrkt/reveal.js-elapsed-time-bar)
     allottedTime: timer * 60 * 1000,
 
     // - (optional) height of page/time progress bar
-    progressBarHeight: 1,
+    progressBarHeight: 2,
 
     // - (optional) bar color
-    barColor: "rgb(0,250,250)",
+    // barColor: "rgb(250,250,0)",
 
     // - (optional) bar color when timer is paused
     // pausedBarColor: 'rgba(200,0,0,.6)',
@@ -198,6 +200,23 @@ document.addEventListener("DOMContentLoaded", () => {
       // and the menu will not attempt to load the font-awesome library.
       loadIcons: true
     },
+
+    keyboard: {
+      // pause/resume time when Enter is pressed
+      13: () => {
+        if (ElapsedTimeBar.isPaused) {
+          ElapsedTimeBar.resume();
+        } else {
+          ElapsedTimeBar.pause();
+        }
+        Reveal.togglePause();
+      },
+      // reset timer when 'r' is pressed
+      82: () => {
+        ElapsedTimeBar.reset();
+      }
+    },
+
     dependencies: [
       // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
       {
@@ -249,9 +268,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Copy|Paste Installs
       { src: "/plugins/badges/badges.js", condition: () => !disabledPlugins.badges },
-      // { src: '/plugins/title-footer/title-footer.js', condition: () => !disabledPlugins.titleFooter, async: true, callback: () => {
-      //   title_footer.initialize()
-      // }},
       { src: "/plugins/elapsed-time-bar/elapsed-time-bar.js", condition: () => !disabledPlugins.timeBar },
       { src: "/plugins/embed-tweet/embed-tweet.js", condition: () => !disabledPlugins.tweets }
     ]
