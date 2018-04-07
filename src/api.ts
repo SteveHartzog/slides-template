@@ -6,7 +6,7 @@ const { JSDOM } = jsdom;
 import * as prettyBytes from 'pretty-bytes';
 import * as moment from '../node_modules/moment/min/moment.min.js';
 
-export class api { 
+export class api {
   constructor(app) {
     app.get('/api/files', this.getPresentations);
   }
@@ -15,8 +15,17 @@ export class api {
     let files = [];
     let self = this;
     nodedir.readFiles('./src/presentations', { recursive: true, sync: true }, (err, content, fileName, nextFile) => {
-      let group = fileName.split('\\')[2];
-      let href = fileName.replace('src\\', '/').split('\\').join('/');
+      let isWin = process.platform === 'win32';
+      let group = '';
+      let href = '';
+      if (isWin) {
+        group = fileName.split('\\')[2];
+        href = fileName.replace('src\\', '/').split('\\').join('/');
+      } else {
+        group = fileName.split('/')[2];
+        href = fileName.replace('src/', '/');
+      }
+
       if (group === 'index.html' || href.indexOf('/images/') > 0) {
         nextFile();
         return;
@@ -52,7 +61,7 @@ export class api {
       let modified = moment(stats.mtime).toString();
       let newFile = { group, title, href, author, venue, presented, modified, size };
       files.push(newFile);
-      
+
       nextFile();
     }, (err, output) => {
       res.send(files);
