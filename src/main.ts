@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
       oninit: function(editor) {
         editor.setOptions({
           cursorStyle: "wide", // ignored
-          fontSize: "35px",
+          fontSize: "25px",
           fadeFoldWidgets: true,
           highlightGutterLine: false,
           showInvisibles: false,
