@@ -39,7 +39,7 @@
     "jsdom": "^11.6.1",
     "lodash": "^4.17.4",
     "node-dir": "^0.1.17",
-    "node-sass": "^4.9.1",
+    "node-sass": "^7.0.0",
     "pretty-bytes": "^4.0.2",
     "reveal.js": "git+https://github.com/hakimel/reveal.js.git#6dbc5932806a4dfe59e035cea55b0c9673133215",
     "reveal.js-menu": "^0.9.1",
