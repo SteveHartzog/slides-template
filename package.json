@@ -22,7 +22,7 @@
     "style-loader": "0.19.1",
     "webpack": "3.10.0",
     "webpack-bundle-analyzer": "^2.9.2",
-    "webpack-dashboard": "^1.1.1",
+    "webpack-dashboard": "^3.3.7",
     "webpack-dev-server": "2.11.1"
   },
   "dependencies": {
